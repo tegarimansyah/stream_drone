@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- {{ url_for('static', filename='style.css') }} -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='dist/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{{ url_for('static', filename='assets/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet ">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="{{ url_for('static', filename='assets/js/ie-emulation-modes-warning.js') }}"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Deteksi Korban Bencana Alam dengan Deep Learning</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Hasil</a></li>
+            <li><a href="#">Tentang Program</a></li>
+            <li><a href="#">Tentang Saya</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#video-stream">Video Stream <span class="sr-only">(current)</span></a></li>
+            <li><a href="#data-properties">Data Properties</a></li>
+            <li><a href="#drone-properties">Drone Properties</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header" id="video-stream">Video Stream</h1>
+          <div class="row">
+            <div class="col-sm-7 col-md-8">
+              <img class="stream_pic" src="{{ url_for('video_feed') }}">
+            </div>
+            <div class="col-sm-5 col-md-4">
+              <form method="POST">
+                <label class="switch-text">Watch</label>
+                <label class="switch">
+                  <input type="checkbox" name="save" class="config_opt" id="save">
+                  <div class="slider"></div>
+                </label>
+                <label class="switch-text">Save</label>
+                <br>
+                
+                <label class="switch-text">Stream</label>
+                <label class="switch">
+                  <input type="checkbox" name="files" class="config_opt" id="files">
+                  <div class="slider"></div>
+                </label>
+                <label class="switch-text">Read from files</label>
+              </form>
+            </div>
+          </div>
+
+          <h1 class="sub-header" id="data-properties">Data Properties</h1>
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <td>Number of Images</td>
+                <td>1000</td>
+              </tr>
+              <tr>
+                <td>Start latitude, longitude</td>
+                <td>(-0.789275, 113.921327)</td>
+              </tr>
+              <tr>
+                <td>Stop latitude, longitude</td>
+                <td>(-0.789275, 113.921327)</td>
+              </tr>
+              <tr>
+                <td>Width, Height</td>
+                <td>(640, 480)</td>
+              </tr>
+              <tr>
+                <td>Number of Victim Detected</td>
+                <td>15</td>
+              </tr>
+            </table>
+          </div>
+
+          <h1 class="sub-header" id="drone-properties">Drone Properties</h1>
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <td>GPS hdop</td>
+                <td>1.2</td>
+              </tr>
+              <tr>
+                <td>Current Lat lang</td>
+                <td>(-0.789275, 113.921327)</td>
+              </tr>
+              <tr>
+                <td>Current Heading</td>
+                <td>113.921327</td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='dist/js/bootstrap.min.js') }}"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="{{ url_for('static', filename='assets/js/vendor/holder.min.js') }}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url_for('static', filename='assets/js/ie10-viewport-bug-workaround.js') }}"></script>
+    <script type="text/javascript">
+      $(document).ready(function() { 
+        $('.config_opt').change(function() {
+          // alert(this.id)
+          var id = this.id;
+          $.ajax({
+              url: '/config',
+              dataType: 'json',
+              data: id,
+              type: 'POST'
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
